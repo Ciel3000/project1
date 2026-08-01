@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun Date 🌞</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Screen 1: Welcome -->
+  <section id="screen-welcome" class="screen active">
+    <div class="sun"></div>
+    <div class="container">
+      <h1>Hey Bunbiee ☀️</h1>
+      <p>I have a little surprise for you...</p>
+      <button class="btn btn-primary" onclick="showScreen('screen-memory')">Start</button>
+    </div>
+  </section>
+
+  <!-- Screen 2: Memory / Teaser -->
+  <section id="screen-memory" class="screen">
+    <div class="container">
+      <h2>Remember this? 😄</h2>
+      <!-- {{MEMORY}} — fill in The Middle joke/reference here -->
+      <p class="memory-text">"I'm the mom. I know everything."</p>
+      <p>That's the kind of energy I want for our next adventure...</p>
+      <button class="btn btn-primary" onclick="startLoading()">Continue</button>
+    </div>
+  </section>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="overlay hidden">
+    <div class="loading-content">
+      <div class="spinner"></div>
+      <p>Hmm... let me think of the perfect question...</p>
+    </div>
+  </div>
+
+  <!-- Screen 3: The Ask -->
+  <section id="screen-ask" class="screen">
+    <div class="container">
+      <h2>Bunbiee, will you go on a sun date with me<br /><span class="date-highlight">tomorrow, August 2?</span></h2>
+      <div class="ask-buttons">
+        <button id="btn-yes" class="btn btn-yes" onclick="handleYes()">Yes</button>
+        <button id="btn-no" class="btn btn-no" onmouseenter="handleNoHover()" onclick="handleNoClick()">No</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 3b: Silly Excuse -->
+  <div id="screen-excuse" class="overlay hidden">
+    <div class="excuse-content">
+      <p id="excuse-text" class="excuse-text"></p>
+      <button class="btn btn-primary" onclick="hideExcuse()">Okay okay...</button>
+    </div>
+  </div>
+
+  <!-- Screen 4: Celebration -->
+  <section id="screen-celebration" class="screen">
+    <div class="sun"></div>
+    <div class="container">
+      <h1>YAY! 🎉</h1>
+      <p>I knew you'd say yes. Tomorrow is going to be perfect.</p>
+      <p class="celebration-sub">Get ready for sun, fun, and lots of us.</p>
+      <button class="btn btn-primary" onclick="showScreen('screen-welcome')">Replay</button>
+    </div>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
