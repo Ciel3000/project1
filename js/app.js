@@ -27,6 +27,7 @@ function startLoading() {
 function handleYes() {
   spawnConfetti();
   showScreen('screen-celebration');
+  spawnConfettiRain();
 }
 
 /* ===== No Dodge Logic ===== */
@@ -113,6 +114,28 @@ function spawnConfetti() {
     });
 
     setTimeout(() => confetti.remove(), 1600);
+  }
+}
+
+/* ===== Confetti Rain ===== */
+function spawnConfettiRain() {
+  const colors = ['#ffb347', '#ff6b6b', '#ffd700', '#ff9f43', '#ff7675', '#fdcb6e'];
+  const container = document.body;
+
+  for (let i = 0; i < 60; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.top = '-10px';
+    confetti.style.width = (6 + Math.random() * 8) + 'px';
+    confetti.style.height = (6 + Math.random() * 8) + 'px';
+    confetti.style.animation = `confetti-rain ${2 + Math.random() * 3}s linear forwards`;
+    confetti.style.animationDelay = Math.random() * 2 + 's';
+
+    container.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 6000);
   }
 }
 
